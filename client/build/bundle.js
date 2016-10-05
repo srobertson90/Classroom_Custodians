@@ -73,9 +73,39 @@
 
 /***/ },
 /* 2 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Custodian = __webpack_require__(3);
+	
+	var Custodians = function(){
+	
+	}
+	
+	Custodians.prototype = {
+	
+	all: function(onComplete){
+	  var self = this;
+	  var url = "http://localhost:3000/api/custodians"
+	}
+	
+	}
+	
+	module.exports = Custodians;
+
+/***/ },
+/* 3 */
 /***/ function(module, exports) {
 
-
+	var Custodian = function(options){
+	  this.name = options.name;
+	  this.special = options.special;
+	}
+	
+	Custodian.prototype = {
+	  
+	}
+	
+	module.exports = Custodian;
 
 /***/ }
 /******/ ]);
