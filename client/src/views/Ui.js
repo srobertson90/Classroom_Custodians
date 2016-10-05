@@ -6,3 +6,9 @@ var Ui = function(){
     console.log(data)
   });
 }
+
+Ui.prototype = {
+  
+}
+
+module.exports = Ui;
