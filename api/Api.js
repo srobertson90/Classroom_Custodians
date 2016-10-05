@@ -1,6 +1,9 @@
 var custodians = [
-{name: "Zsolt", specialAbility: "Spin"},
-{name: "Val", specialAbility: "Cat minions"}
+{name: "Zsolt", special: "demoralize"},
+{name: "Val", special: "terrify"},
+{name: "Beth", special: "spread pestilence"},
+{name: "Jarrod", special: "rage"},
+{name: "Tony", special: "fire alarm"}
 ]
 
 
