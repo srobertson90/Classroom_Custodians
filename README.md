@@ -1,0 +1,1 @@
+install webpack through npm globally
