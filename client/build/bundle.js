@@ -76,6 +76,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var Custodian = __webpack_require__(3);
+	var apiRequest = __webpack_require__(4);
 	
 	var Custodians = function(){
 	
@@ -86,6 +87,23 @@
 	all: function(onComplete){
 	  var self = this;
 	  var url = "http://localhost:3000/api/custodians"
+	
+	  apiRequest(url, function(){
+	    if (this.status !== 200) return;
+	    var jsonString = this.responseText;
+	    var results = JSON.parse(jsonString);
+	    var custodians = self.parseToCustodians(results);
+	    onComplete(custodians);
+	  });
+	},
+	
+	parseToCustodians: function(results){
+	  var custodians = [];
+	  for (var result of results){
+	    var custodian = new Custodian(result);
+	    custodians.push(custodian);
+	  }
+	  return custodians;
 	}
 	
 	}
@@ -106,6 +124,19 @@
 	}
 	
 	module.exports = Custodian;
+
+/***/ },
+/* 4 */
+/***/ function(module, exports) {
+
+	var apiRequester = function(url, callback){
+	  var request = new XMLHttpRequest()
+	  request.open("GET", url);
+	  request.onload = callback;
+	  request.send();
+	}
+	
+	module.exports = apiRequester;
 
 /***/ }
 /******/ ]);
